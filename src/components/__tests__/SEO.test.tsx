@@ -45,7 +45,7 @@ describe('SEO', () => {
   it('adds person JSON-LD script to document head', () => {
     render(<SEO />);
 
-    const personScript = document.getElementById('ld-person');
+    const personScript = document.getElementById('ld-person') as HTMLScriptElement | null;
     expect(personScript).toBeInTheDocument();
     expect(personScript?.type).toBe('application/ld+json');
     
@@ -60,7 +60,7 @@ describe('SEO', () => {
   it('adds projects JSON-LD script to document head', () => {
     render(<SEO />);
 
-    const projectsScript = document.getElementById('ld-projects');
+    const projectsScript = document.getElementById('ld-projects') as HTMLScriptElement | null;
     expect(projectsScript).toBeInTheDocument();
     expect(projectsScript?.type).toBe('application/ld+json');
     
