@@ -64,7 +64,9 @@ describe('Footer', () => {
 
     const currentYear = new Date().getFullYear();
     expect(screen.getByText(new RegExp(currentYear.toString()))).toBeInTheDocument();
-    expect(screen.getByText(/bikash ghimire/i)).toBeInTheDocument();
+    // Name may appear multiple times (header, footer, etc.)
+    const nameElements = screen.getAllByText(/bikash ghimire/i);
+    expect(nameElements.length).toBeGreaterThan(0);
   });
 
   it('renders language toggle', () => {

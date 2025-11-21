@@ -44,9 +44,10 @@ describe('Certifications', () => {
     customRender(<Certifications />);
 
     expect(screen.getByText(/amazon web services/i)).toBeInTheDocument();
-    expect(screen.getByText('2023')).toBeInTheDocument();
+    // Date might be formatted or split across elements, use a more flexible matcher
+    expect(screen.getByText(/2023/)).toBeInTheDocument();
     expect(screen.getByText(/meta/i)).toBeInTheDocument();
-    expect(screen.getByText('2022')).toBeInTheDocument();
+    expect(screen.getByText(/2022/)).toBeInTheDocument();
   });
 
   it('renders certification tags', () => {

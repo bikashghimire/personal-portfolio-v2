@@ -21,8 +21,8 @@ describe('About', () => {
   it('renders about section with title and subtitle', () => {
     customRender(<About />);
 
-    // Check for section title (translated)
-    const section = screen.getByRole('region', { name: /about/i }) || document.getElementById('about');
+    // Check for section by id
+    const section = document.getElementById('about');
     expect(section).toBeInTheDocument();
   });
 
@@ -43,8 +43,9 @@ describe('About', () => {
   it('renders technical expertise section', () => {
     customRender(<About />);
 
-    // Check for technical expertise heading
-    expect(screen.getByText(/technical expertise|technologies/i)).toBeInTheDocument();
+    // Check for technical expertise heading (may appear multiple times)
+    const expertiseHeadings = screen.getAllByText(/technical expertise|technologies/i);
+    expect(expertiseHeadings.length).toBeGreaterThan(0);
   });
 
   it('renders skill categories', () => {

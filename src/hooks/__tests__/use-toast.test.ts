@@ -62,7 +62,8 @@ describe('useToast', () => {
       toast({ title: 'Toast 2' });
     });
 
-    expect(result.current.toasts.length).toBe(2);
+    // TOAST_LIMIT is 1, so only 1 toast should be kept
+    expect(result.current.toasts.length).toBe(1);
 
     act(() => {
       result.current.dismiss();
