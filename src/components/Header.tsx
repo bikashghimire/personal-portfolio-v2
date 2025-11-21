@@ -61,19 +61,32 @@ const Header: React.FC = () => {
     }
   }, [isMenuOpen]);
 
-  const navItems = [
+  type NavItem = {
+    label: string;
+    href: string;
+    external?: boolean;
+  };
+
+  const navItems: NavItem[] = [
     { label: t('nav.about'), href: '#about' },
     { label: t('nav.experience'), href: '#experience' },
     { label: t('nav.education'), href: '#education' },
     { label: t('nav.projects'), href: '#projects' },
+    { label: 'Blog', href: 'https://bikashdev.netlify.app/blog', external: true },
     { label: t('nav.contact'), href: '#contact' }
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (item: NavItem) => {
+    if (item.href.startsWith('#')) {
+      const element = document.querySelector(item.href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      setIsMenuOpen(false);
+      return;
     }
+    const target = item.external ? '_blank' : '_self';
+    window.open(item.href, target);
     setIsMenuOpen(false);
   };
 
@@ -117,7 +130,7 @@ const Header: React.FC = () => {
             {navItems.map((item) => (
               <button
                 key={item.label}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => handleNavClick(item)}
                 className="text-gray-900 dark:text-gray-100 font-medium relative px-3 py-2 rounded-md transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 dark:focus-visible:ring-gray-700"
               >
                 {item.label}
@@ -183,7 +196,7 @@ const Header: React.FC = () => {
               {navItems.map((item) => (
                 <button
                   key={item.label}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleNavClick(item)}
                   className="text-left text-gray-900 dark:text-gray-100 font-medium py-3 px-4 rounded-md w-full transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 dark:focus-visible:ring-gray-700"
                 >
                   {item.label}
