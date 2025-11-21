@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import { skills } from '@/data/portfolio';
 
 const About: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   
   return (
     <section id="about" className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-black">

@@ -3,14 +3,14 @@ import { Button } from '@/components/ui/button';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import LanguageToggle from '@/components/LanguageToggle';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import { personalInfo } from '@/data/portfolio';
 import resumePdf from '@/assets/images/ghimire_bikash_cv.pdf';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t } = useLanguage();
+  const { t } = useTranslation();
 
   const downloadResume = async () => {
     try {

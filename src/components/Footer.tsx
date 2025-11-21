@@ -2,11 +2,11 @@ import React from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '@/data/portfolio';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import LanguageToggle from './LanguageToggle';
 
 const Footer: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   
   return (
     <footer className="bg-white dark:bg-black border-t-2 border-black dark:border-white">

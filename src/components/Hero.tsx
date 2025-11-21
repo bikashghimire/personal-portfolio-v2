@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowDown, Download, MapPin } from 'lucide-react';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 import { personalInfo } from '@/data/portfolio';
 import resumePdf from '@/assets/images/ghimire_bikash_cv.pdf';
 
@@ -10,7 +10,7 @@ const ACCENT = 'bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:h
 const ACCENT_TEXT = 'text-black dark:text-white';
 
 const Hero: React.FC = () => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const downloadResume = async () => {

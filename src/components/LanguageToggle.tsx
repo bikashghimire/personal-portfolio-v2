@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/hooks/useLanguage';
+import { useTranslation } from '@/hooks/useTranslation';
 
 const LanguageToggle: React.FC = () => {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage } = useTranslation();
 
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'fi' : 'en');
