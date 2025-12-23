@@ -5,6 +5,7 @@ import visionboardImage from '@/assets/images/visionboard.png';
 import waveOfFlavorsImage from '@/assets/images/wave_of_flavors.png';
 import dashboardImage from '@/assets/images/dashboard.png';
 import dreamDoorsImage from '@/assets/images/dream_doors.png';
+import nordeviAcademyImage from '@/assets/images/nordevi-academy.png';
 
 export const personalInfo = {
   name: "Bikash Ghimire",
@@ -380,13 +381,13 @@ export const projects = [
   },
   {
         id: 10,
-    title: "Bikash Dev Website",
-    description: "Website for showcasing my portfolio, blog, and other stuffs.",
+    title: "Nordevi Tech",
+    description: "Nordevi Tech is a tech company that provides services to businesses and individuals.",
     technologies: ["TypeScript", "CSS", "JavaScript"],
     image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800",
-    github: "https://github.com/bikashghimire/tapana-oy",
-    demo: "https://bikashdev-com.vercel.app/",
-    featured: false
+    github: "https://github.com/bikashghimire/nordevi-tech",
+    demo: "https://www.nordevi.tech/",
+    featured: true
   },
   {
     id: 11,
@@ -436,6 +437,36 @@ export const projects = [
     image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
     github: "https://github.com/bikashghimire/sveltekit-crud-fullstack",
     demo: "https://mynotebookapps.netlify.app/",
+    featured: false
+  },
+  {
+    id: 16,
+    title: "Nordevi Academy",
+    description: "A Coding Bootcamp for students to learn coding and get job opportunities.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    image: nordeviAcademyImage,
+    github: "https://github.com/bikashghimire/nordevi-academy",
+    demo: "https://nordevi-academy.vercel.app/",
+    featured: true
+  },
+  {
+    id: 17,
+    title: "NordDesign",
+    description: "A Design System consultancy company.",
+    technologies: ["React", "Next.js", "Shadcn/UI", "TypeScript", "Tailwind CSS"],
+    image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+    github: "https://github.com/bikashghimire/norddesign",
+    demo: "https://github.com/bikashghimire/design-system-consultancy",
+    featured: true
+  },
+  {
+    id: 18,
+    title: "React Quiz App",
+    description: "A quiz app built with React, TypeScript, and Tailwind CSS.",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+    github: "https://github.com/bikashghimire/react-quiz-app",
+    demo: "https://custom-react-quiz-app.vercel.app/",
     featured: false
   }
 ];
