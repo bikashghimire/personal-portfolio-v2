@@ -6,6 +6,7 @@ import waveOfFlavorsImage from '@/assets/images/wave_of_flavors.png';
 import dashboardImage from '@/assets/images/dashboard.png';
 import dreamDoorsImage from '@/assets/images/dream_doors.png';
 import nordeviAcademyImage from '@/assets/images/nordevi-academy.png';
+import omMuktinathDentalHomeImage from '@/assets/images/ommuktinathdentalhome.png';
 
 export const personalInfo = {
   name: "Bikash Ghimire",
@@ -468,6 +469,16 @@ export const projects = [
     github: "https://github.com/bikashghimire/react-quiz-app",
     demo: "https://custom-react-quiz-app.vercel.app/",
     featured: false
+  },
+  {
+    id: 19,
+    title: "Om Muktinath Dental Home",
+    description: "A website for a dental clinic in Nepal.",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    image: omMuktinathDentalHomeImage,
+    github:"https://github.com/bikashghimire/muktinath-dental-clinic-website",
+    demo: "https://www.ommuktinathdentalhome.com/",
+    featured: true
   }
 ];
 
