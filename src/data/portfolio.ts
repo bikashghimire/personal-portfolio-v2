@@ -26,7 +26,7 @@ export const experience = [
     id: 1,
     company: "Datadrivers Oy",
     position: "Software Developer",
-    duration: "Mar 2024 - Present",
+    duration: "Mar 2025 - Present",
     location: "Helsinki, Finland",
     description: "Architected an enterprise-grade design system from the ground up, driving UI/UX consistency across multiple product lines and significantly improving development velocity. Spearheaded front-end R&D initiatives by evaluating next-generation frameworks and authoring Architecture Decision Records (ADRs) to guide scalable component library selection. Developed a comprehensive, accessible, and performant component library using TypeScript, React, and Tailwind CSS. Established robust development infrastructure including Storybook documentation, design tokens, and automated testing frameworks. Collaborated cross-functionally with product, design, and backend teams to deliver seamless user experiences for flagship platforms such as Webauto and Fleetskills. Additionally, mentored teams on modern front-end best practices, component-driven development, and CI/CD workflows.",
     technologies: [
@@ -58,7 +58,7 @@ export const experience = [
     id: 2,
     company: "Metso",
     position: "Software Developer",
-    duration: "May 2023 - Jan 2024",
+    duration: "May 2024 - Jan 2025",
     location: "Espoo, Finland",
     description: "At Metso, I led the development of scalable design system UI libraries, including a React-based framework and a framework-agnostic web components library, collectively achieving 100,000+ npm downloads. I ensured components were reusable, accessible, and performance-optimized, adhering to WCAG standards and collaborating with cross-functional teams. My work on the design system earned recognition at the Metso Innovation Award 2024 for its impact on UI/UX standardization and scalability. Additionally, I developed AI-driven solutions in Azure using OpenAI Studio, integrated CI/CD workflows, and deployed static web applications.",
     technologies: [
