@@ -11,6 +11,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Skills from './components/Skills';
+import Chatbot from './components/Chatbot';
 import SEO from './components/SEO';
 import { Button } from '@/components/ui/button';
 import { ArrowUp } from 'lucide-react';
@@ -64,6 +65,7 @@ function App() {
             <Contact />
           </main>
           <Footer />
+          <Chatbot />
           {showScrollTop && (
             <div className="fixed bottom-6 right-6 z-50">
               <Button
