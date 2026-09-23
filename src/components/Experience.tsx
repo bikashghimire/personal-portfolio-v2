@@ -38,8 +38,8 @@ const Experience: React.FC = () => {
                           {/* Company and position info */}
                           <div className="flex items-start justify-between mb-4">
                             <div className="flex items-center gap-3 mb-3">
-                              <div className="p-2 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-md">
-                                <Building className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+                               <div className="p-2 bg-secondary border border-border rounded-md">
+                                 <Building className="h-5 w-5 text-muted-foreground" />
                               </div>
                             </div>
                           </div>
@@ -48,13 +48,13 @@ const Experience: React.FC = () => {
                            <h4 className="display-font text-2xl lg:text-3xl font-bold mb-4">{job.company}</h4>
                           
                           {/* Duration and location */}
-                          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 text-gray-600 dark:text-gray-400 mb-6">
+                           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 text-[#c0c7ce] mb-6">
                             <div className="flex items-center gap-2">
-                              <Calendar className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                               <Calendar className="h-4 w-4 text-[#d8f52b]" />
                               <span className="font-medium">{job.duration}</span>
                             </div>
                             <div className="flex items-center gap-2">
-                              <MapPin className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                               <MapPin className="h-4 w-4 text-[#d8f52b]" />
                               <span className="font-medium">{job.location}</span>
                             </div>
                           </div>

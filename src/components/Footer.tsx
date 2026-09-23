@@ -9,15 +9,15 @@ const Footer: React.FC = () => {
   const { t } = useTranslation();
   
   return (
-    <footer className="bg-white dark:bg-black border-t-2 border-black dark:border-white">
+    <footer className="bg-card border-t border-border text-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <div className="sm:col-span-2">
-              <h3 className="text-2xl font-bold mb-4 text-black dark:text-white">
+              <h3 className="display-font text-2xl font-bold mb-4 text-foreground">
                 {personalInfo.name}
               </h3>
-              <p className="text-black dark:text-white mb-4">
+              <p className="text-muted-foreground mb-4">
                 {t('footer.description')}
               </p>
               <div className="flex space-x-4">
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
                   href={personalInfo.github} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-black dark:text-white hover:opacity-70 transition-opacity"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Github className="h-5 w-5" />
                 </a>
@@ -33,13 +33,13 @@ const Footer: React.FC = () => {
                   href={personalInfo.linkedin} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-black dark:text-white hover:opacity-70 transition-opacity"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a 
                   href={`mailto:${personalInfo.email}`}
-                  className="text-black dark:text-white hover:opacity-70 transition-opacity"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="h-5 w-5" />
                 </a>
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-black dark:text-white">{t('footer.quickLinks')}</h4>
+              <h4 className="font-semibold mb-4 text-foreground">{t('footer.quickLinks')}</h4>
               <ul className="space-y-2">
                 {[
                   { label: t('footer.about'), href: '#about' },
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
                   { label: t('footer.contact'), href: '#contact' }
                 ].map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-black dark:text-white hover:opacity-70 transition-opacity">
+                    <a href={link.href} className="text-muted-foreground hover:text-foreground transition-colors">
                       {link.label}
                     </a>
                   </li>
@@ -65,8 +65,8 @@ const Footer: React.FC = () => {
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4 text-black dark:text-white">{t('footer.services')}</h4>
-              <ul className="space-y-2 text-black dark:text-white">
+              <h4 className="font-semibold mb-4 text-foreground">{t('footer.services')}</h4>
+              <ul className="space-y-2 text-muted-foreground">
                 <li>{t('footer.webDevelopment')}</li>
                 <li>{t('footer.frontendDevelopment')}</li>
                 <li>{t('footer.backendDevelopment')}</li>
@@ -75,10 +75,10 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <Separator className="my-8 bg-black dark:bg-white" />
+          <Separator className="my-8 bg-border" />
 
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-black dark:text-white text-sm text-center sm:text-left">
+            <p className="text-muted-foreground text-sm text-center sm:text-left">
               © {new Date().getFullYear()} {personalInfo.name}. {t('footer.copyright')}
             </p>
             <div className="flex items-center gap-4">

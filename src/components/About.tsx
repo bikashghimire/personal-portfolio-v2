@@ -25,7 +25,7 @@ const About: React.FC = () => {
             <Card className="border border-border bg-card shadow-none rounded-none">
               <CardContent className="p-4 lg:p-10">
                 <h3 className="display-font text-2xl sm:text-3xl font-bold mb-8 text-foreground">{t('about.myJourney')}</h3>
-                <div className="space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed">
+                <div className="space-y-6 text-muted-foreground leading-relaxed">
                   <p className="text-lg">
                     {t('about.description1')}
                   </p>
@@ -71,7 +71,7 @@ const About: React.FC = () => {
                 <h3 className="display-font text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6 text-foreground">
                   {t('about.technicalExpertise')}
                 </h3>
-                <div className="w-12 sm:w-16 h-1 bg-gray-300 dark:bg-gray-700 mx-auto rounded-full"></div>
+                <div className="w-12 sm:w-16 h-1 bg-border mx-auto rounded-full"></div>
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
@@ -82,7 +82,7 @@ const About: React.FC = () => {
                         <h4 className="display-font font-bold text-lg sm:text-xl text-foreground mb-2 sm:mb-3">
                           {skillGroup.category}
                         </h4>
-                        <div className="w-8 sm:w-12 h-1 bg-gray-300 dark:bg-gray-700 rounded-full"></div>
+                        <div className="w-8 sm:w-12 h-1 bg-border rounded-full"></div>
                       </div>
                       
                       <div className="space-y-2 sm:space-y-3">
@@ -104,8 +104,8 @@ const About: React.FC = () => {
               
               {/* Skills summary */}
               <div className="mt-8 sm:mt-12 text-center">
-                <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 bg-black dark:bg-white rounded-lg">
-                  <span className="text-white dark:text-black font-semibold text-sm sm:text-base">
+                <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 bg-primary rounded-lg">
+                  <span className="text-primary-foreground font-semibold text-sm sm:text-base">
                     {skills.reduce((total, group) => total + group.items.length, 0)}+ Technologies
                   </span>
                 </div>

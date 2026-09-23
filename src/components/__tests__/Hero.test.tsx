@@ -54,7 +54,7 @@ describe('Hero', () => {
     customRender(<Hero />);
 
     expect(screen.getByText('Bikash Ghimire')).toBeInTheDocument();
-    expect(screen.getByText('Software Developer')).toBeInTheDocument();
+    expect(screen.getByText('Full Stack Product Engineer')).toBeInTheDocument();
   });
 
   it('renders location badge', () => {
@@ -69,7 +69,7 @@ describe('Hero', () => {
     customRender(<Hero />);
 
     expect(
-      screen.getByText('Building exceptional web experiences with modern technologies'),
+      screen.getByText('Enterprise design systems, product development, and AI-augmented engineering'),
     ).toBeInTheDocument();
   });
 

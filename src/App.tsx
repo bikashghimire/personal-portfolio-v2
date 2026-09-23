@@ -70,7 +70,7 @@ function App() {
             <div className="fixed bottom-6 right-6 z-50">
               <Button
                 onClick={handleScrollTop}
-                className="h-12 w-12 rounded-full p-0 bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 shadow-lg border border-gray-300 dark:border-gray-700"
+                 className="h-12 w-12 rounded-full p-0 bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground shadow-lg border border-border"
                 aria-label="Scroll to top"
               >
                 <ArrowUp className="h-5 w-5" />

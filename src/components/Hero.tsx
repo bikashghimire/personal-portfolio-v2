@@ -86,11 +86,11 @@ const Hero: React.FC = () => {
               <span className="mono-font text-xs text-[#a9b2bd]">{personalInfo.location}</span>
             </div>
             <div className="mb-8 animate-slide-up">
-              <p className="mono-font text-sm text-[#d8f52b] mb-5">01 / SOFTWARE DEVELOPER</p>
+              <p className="mono-font text-sm text-[#d8f52b] mb-5">01 / FULL STACK PRODUCT ENGINEER</p>
               <h1 className="display-font text-[clamp(4rem,11vw,10rem)] font-bold leading-[0.84] tracking-[-0.08em] text-[#f5f1e8]">
                 <span className="sr-only">Bikash Ghimire</span><span aria-hidden="true">Bikash<br /><span className="text-[#d8f52b]">Ghimire.</span></span>
               </h1>
-              <span className="sr-only">Software Developer</span>
+              <span className="sr-only">Full Stack Product Engineer</span>
             </div>
             <p className="max-w-2xl text-lg sm:text-xl md:text-2xl text-[#c0c7ce] mb-10 leading-relaxed animate-fade-in delay-300">
               <span className="sr-only">{personalInfo.tagline}</span><span aria-hidden="true">{personalInfo.tagline}. <span className="text-[#f5f1e8]">I turn complex product problems into clear, durable interfaces.</span></span>
@@ -112,7 +112,7 @@ const Hero: React.FC = () => {
             size="lg"
             variant="outline"
             asChild
-            className="group w-full xs:w-auto px-7 py-6 text-base font-bold rounded-none border border-[#f5f1e8]/30 text-[#f5f1e8] hover:bg-[#f5f1e8] hover:text-[#14202f] transition-all duration-300"
+            className="group w-full xs:w-auto px-7 py-6 text-base font-bold rounded-none border border-[#f5f1e8]/30 bg-transparent text-[#f5f1e8] hover:bg-[#f5f1e8] hover:text-[#14202f] transition-all duration-300"
           >
             <a href={resumePdf} download="ghimire_bikash_cv.pdf">
               <Download className="h-5 w-5 mr-3" />

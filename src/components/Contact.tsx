@@ -17,7 +17,7 @@ const ContactForm = ({ onSuccess }: { onSuccess: () => void }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
-        <label htmlFor="name" className="block text-sm font-bold uppercase tracking-wide text-black dark:text-white">
+        <label htmlFor="name" className="block text-sm font-bold uppercase tracking-wide text-foreground">
           Name *
         </label>
         <input
@@ -25,7 +25,7 @@ const ContactForm = ({ onSuccess }: { onSuccess: () => void }) => {
           id="name"
           name="name"
           required
-          className="w-full h-12 px-4 bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 rounded-lg transition-all duration-300 font-medium"
+          className="w-full h-12 px-4 bg-background border-2 border-border text-foreground placeholder:text-muted-foreground focus:border-[#b4d500] focus:ring-0 rounded-lg transition-all duration-300 font-medium"
           placeholder="Your name"
         />
         <ValidationError 
@@ -37,7 +37,7 @@ const ContactForm = ({ onSuccess }: { onSuccess: () => void }) => {
       </div>
       
       <div className="space-y-2">
-        <label htmlFor="email" className="block text-sm font-bold uppercase tracking-wide text-black dark:text-white">
+        <label htmlFor="email" className="block text-sm font-bold uppercase tracking-wide text-foreground">
           Email *
         </label>
         <input
@@ -45,7 +45,7 @@ const ContactForm = ({ onSuccess }: { onSuccess: () => void }) => {
           id="email"
           name="email"
           required
-          className="w-full h-12 px-4 bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 rounded-lg transition-all duration-300 font-medium"
+          className="w-full h-12 px-4 bg-background border-2 border-border text-foreground placeholder:text-muted-foreground focus:border-[#b4d500] focus:ring-0 rounded-lg transition-all duration-300 font-medium"
           placeholder="your@email.com"
         />
         <ValidationError 
@@ -57,7 +57,7 @@ const ContactForm = ({ onSuccess }: { onSuccess: () => void }) => {
       </div>
       
       <div className="space-y-2">
-        <label htmlFor="message" className="block text-sm font-bold uppercase tracking-wide text-black dark:text-white">
+        <label htmlFor="message" className="block text-sm font-bold uppercase tracking-wide text-foreground">
           Message *
         </label>
         <textarea
@@ -65,7 +65,7 @@ const ContactForm = ({ onSuccess }: { onSuccess: () => void }) => {
           name="message"
           required
           rows={6}
-          className="w-full px-4 py-3 bg-white dark:bg-black border-2 border-black dark:border-white text-black dark:text-white focus:border-black dark:focus:border-white focus:ring-0 resize-none rounded-lg transition-all duration-300 font-medium"
+          className="w-full px-4 py-3 bg-background border-2 border-border text-foreground placeholder:text-muted-foreground focus:border-[#b4d500] focus:ring-0 resize-none rounded-lg transition-all duration-300 font-medium"
           placeholder="Tell me about your project..."
         />
         <ValidationError 
@@ -87,11 +87,11 @@ const ContactForm = ({ onSuccess }: { onSuccess: () => void }) => {
       <button
         type="submit"
         disabled={state.submitting}
-        className="w-full h-14 bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black border-2 border-black dark:border-white text-white dark:text-black font-black uppercase tracking-wide rounded-xl transition-all duration-300 group relative overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+        className="w-full h-14 bg-primary hover:bg-[#d8f52b] hover:text-[#14202f] border-2 border-primary text-primary-foreground font-black uppercase tracking-wide rounded-xl transition-all duration-300 group relative overflow-hidden shadow-[4px_4px_0px_0px_hsl(var(--primary)/0.25)] hover:shadow-[2px_2px_0px_0px_hsl(var(--primary)/0.25)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
       >
         {state.submitting ? (
           <>
-            <div className="w-5 h-5 border-2 border-white dark:border-black border-t-transparent rounded-full animate-spin mr-2"></div>
+            <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin mr-2"></div>
             Sending...
           </>
         ) : (
@@ -126,25 +126,25 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="relative py-20 sm:py-24 lg:py-32 bg-white dark:bg-black overflow-hidden">
+    <section id="contact" className="relative py-20 sm:py-24 lg:py-32 paper-section overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 border border-black dark:border-white rounded-full opacity-5 blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 border border-black dark:border-white rounded-full opacity-5 blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 border border-primary rounded-full opacity-10 blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 border border-primary rounded-full opacity-10 blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Section header */}
           <div className="text-center mb-16 sm:mb-20">
-            <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 mb-8 bg-white dark:bg-black border-2 border-black dark:border-white rounded-full shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all duration-300 group">
-              <MessageCircle className="w-10 h-10 sm:w-12 sm:h-12 text-black dark:text-white group-hover:scale-110 transition-transform duration-300" />
+            <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 mb-8 bg-card border-2 border-border rounded-full shadow-[8px_8px_0px_0px_hsl(var(--primary)/0.2)] transition-all duration-300 group">
+              <MessageCircle className="w-10 h-10 sm:w-12 sm:h-12 text-foreground group-hover:scale-110 transition-transform duration-300" />
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 text-black dark:text-white leading-tight tracking-tight">
+            <h2 className="display-font text-4xl sm:text-6xl lg:text-7xl font-black mb-6 text-foreground leading-tight tracking-[-0.06em]">
               Let's Connect
             </h2>
-            <div className="w-24 h-1 bg-black dark:bg-white mx-auto mb-6"></div>
-            <p className="text-lg sm:text-xl lg:text-2xl text-black dark:text-white max-w-3xl mx-auto leading-relaxed font-light">
+            <div className="w-24 h-1 bg-[#b4d500] mx-auto mb-6"></div>
+            <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light">
               Ready to collaborate? I'd love to hear about your project and discuss how we can work together.
             </p>
           </div>
@@ -153,9 +153,9 @@ const Contact: React.FC = () => {
             {/* Contact Information */}
             <div className="space-y-6">
               {/* Contact Details */}
-              <Card className="border-2 border-black dark:border-white bg-white dark:bg-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all duration-300 rounded-xl">
+              <Card className="border border-border bg-card shadow-none transition-all duration-300 rounded-none">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl sm:text-3xl font-black mb-8 text-black dark:text-white">
+                  <h3 className="display-font text-2xl sm:text-3xl font-black mb-8 text-foreground">
                     Get In Touch
                   </h3>
                   
@@ -166,33 +166,33 @@ const Contact: React.FC = () => {
                     ].map((contact) => (
                       <div 
                         key={contact.label} 
-                        className="group p-6 border-2 border-black dark:border-white bg-white dark:bg-black hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100 transition-all duration-300 cursor-pointer rounded-lg"
+                        className="group p-6 border border-border bg-background hover:bg-secondary transition-all duration-300 cursor-pointer rounded-none"
                       >
                         {contact.href ? (
                           <a href={contact.href} className="flex items-center gap-4">
-                            <div className="flex-shrink-0 w-12 h-12 border-2 border-black dark:border-white flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 rounded-lg">
-                              <contact.icon className="h-6 w-6 text-black dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300" />
+                            <div className="flex-shrink-0 w-12 h-12 border-2 border-border flex items-center justify-center group-hover:rotate-12 transition-transform duration-300 rounded-lg">
+                              <contact.icon className="h-6 w-6 text-foreground" />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="text-sm font-semibold uppercase tracking-wide mb-1 text-black dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
+                               <p className="text-sm font-semibold uppercase tracking-wide mb-1 text-foreground">
                                 {contact.label}
                               </p>
-                              <p className="text-base font-medium break-all text-black dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors">
+                               <p className="text-base font-medium break-all text-foreground">
                                 {contact.value}
                               </p>
                             </div>
-                            <ArrowRight className="h-5 w-5 text-black dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 group-hover:translate-x-2 transition-all duration-300" />
+                             <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:translate-x-2 transition-all duration-300" />
                           </a>
                         ) : (
                           <div className="flex items-center gap-4">
-                            <div className="flex-shrink-0 w-12 h-12 border-2 border-black dark:border-white flex items-center justify-center rounded-lg">
-                              <contact.icon className="h-6 w-6 text-black dark:text-white" />
+                            <div className="flex-shrink-0 w-12 h-12 border-2 border-border flex items-center justify-center rounded-lg">
+                              <contact.icon className="h-6 w-6 text-foreground" />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="text-sm font-semibold uppercase tracking-wide mb-1 text-black dark:text-white">
+                              <p className="text-sm font-semibold uppercase tracking-wide mb-1 text-foreground">
                                 {contact.label}
                               </p>
-                              <p className="text-base font-medium text-black dark:text-white">
+                              <p className="text-base font-medium text-foreground">
                                 {contact.value}
                               </p>
                             </div>
@@ -205,9 +205,9 @@ const Contact: React.FC = () => {
               </Card>
 
               {/* Social Links */}
-              <Card className="border-2 border-black dark:border-white bg-white dark:bg-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all duration-300 rounded-xl">
+              <Card className="border border-border bg-card shadow-none transition-all duration-300 rounded-none">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl sm:text-3xl font-black mb-8 text-black dark:text-white">
+                  <h3 className="display-font text-2xl sm:text-3xl font-black mb-8 text-foreground">
                     Follow Me
                   </h3>
                   
@@ -217,11 +217,11 @@ const Contact: React.FC = () => {
                         href={personalInfo.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group w-16 h-16 border-2 border-black dark:border-white bg-white dark:bg-black hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100 transition-all duration-300 flex items-center justify-center relative overflow-hidden rounded-xl"
+                        className="group w-16 h-16 border border-border bg-background hover:bg-secondary transition-all duration-300 flex items-center justify-center relative overflow-hidden rounded-xl"
                         aria-label="GitHub"
                       >
-                        <Github className="h-6 w-6 text-black dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300 relative z-10" />
-                        <div className="absolute inset-0 bg-gray-100 dark:bg-gray-800 scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                        <Github className="h-6 w-6 text-foreground relative z-10" />
+                        <div className="absolute inset-0 bg-secondary scale-0 group-hover:scale-100 transition-transform duration-300"></div>
                       </a>
                     )}
                     {personalInfo.linkedin && (
@@ -229,11 +229,11 @@ const Contact: React.FC = () => {
                         href={personalInfo.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group w-16 h-16 border-2 border-black dark:border-white bg-white dark:bg-black hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100 transition-all duration-300 flex items-center justify-center relative overflow-hidden rounded-xl"
+                        className="group w-16 h-16 border border-border bg-background hover:bg-secondary transition-all duration-300 flex items-center justify-center relative overflow-hidden rounded-xl"
                         aria-label="LinkedIn"
                       >
-                        <Linkedin className="h-6 w-6 text-black dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300 relative z-10" />
-                        <div className="absolute inset-0 bg-gray-100 dark:bg-gray-800 scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                        <Linkedin className="h-6 w-6 text-foreground relative z-10" />
+                        <div className="absolute inset-0 bg-secondary scale-0 group-hover:scale-100 transition-transform duration-300"></div>
                       </a>
                     )}
                   </div>
@@ -242,16 +242,16 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Contact Form */}
-            <Card className="border-2 border-black dark:border-white bg-white dark:bg-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] transition-all duration-300 rounded-xl">
+            <Card className="border border-border bg-card shadow-none transition-all duration-300 rounded-none">
               <CardContent className="p-8">
                 <div className="mb-8">
-                  <div className="inline-flex items-center justify-center w-16 h-16 mb-6 border-2 border-black dark:border-white bg-white dark:bg-black rounded-xl">
-                    <Send className="w-8 h-8 text-black dark:text-white" />
+                  <div className="inline-flex items-center justify-center w-16 h-16 mb-6 border border-border bg-background rounded-xl">
+                    <Send className="w-8 h-8 text-foreground" />
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-black mb-3 text-black dark:text-white">
+                  <h3 className="display-font text-2xl sm:text-3xl font-black mb-3 text-foreground">
                     Send a Message
                   </h3>
-                  <p className="text-black dark:text-white font-light">
+                  <p className="text-muted-foreground font-light">
                     I'll get back to you within 24 hours
                   </p>
                 </div>
@@ -261,7 +261,7 @@ const Contact: React.FC = () => {
                     <div className="inline-flex items-center justify-center w-20 h-20 mb-6 bg-green-50 dark:bg-green-900/20 border-2 border-green-500 dark:border-green-400 rounded-full">
                       <CheckCircle className="w-10 h-10 text-green-600 dark:text-green-400" />
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-black mb-3 text-black dark:text-white">
+                    <h3 className="display-font text-2xl sm:text-3xl font-black mb-3 text-foreground">
                       Thank You!
                     </h3>
                     <p className="text-green-700 dark:text-green-300 font-medium">

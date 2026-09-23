@@ -3,15 +3,15 @@ import { certifications } from '@/data/portfolio';
 
 const Certifications: React.FC = () => {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-black">
+    <section className="py-24 sm:py-28 lg:py-36 paper-section">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-black dark:text-white">
+            <h2 className="display-font text-4xl sm:text-6xl lg:text-7xl font-bold mb-4 tracking-[-0.06em] text-foreground">
               Certifications
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Professional certifications and continuous learning achievements
             </p>
           </div>
@@ -20,13 +20,13 @@ const Certifications: React.FC = () => {
             {certifications.map((cert) => (
               <div 
                 key={cert.id} 
-                className="group p-6 bg-white dark:bg-black rounded-lg border border-gray-200 dark:border-gray-800 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className="group p-6 bg-card border border-border hover:-translate-y-1 hover:border-[#b4d500] transition-all duration-300 rounded-none"
               >
                 <div className="mb-4">
-                  <h3 className="text-lg font-semibold text-black dark:text-white mb-2 leading-snug">
+                  <h3 className="display-font text-lg font-semibold text-foreground mb-2 leading-snug">
                     {cert.name}
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                  <p className="text-sm text-muted-foreground mb-3">
                     <span className="font-medium">{cert.issuer}</span> • {cert.date}
                   </p>
                   
@@ -35,7 +35,7 @@ const Certifications: React.FC = () => {
                     {cert.tags?.map((tag) => (
                       <span 
                         key={tag}
-                        className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-md"
+                        className="px-2 py-1 text-xs font-medium bg-secondary border border-border text-muted-foreground rounded-none"
                       >
                         {tag}
                       </span>
@@ -45,7 +45,7 @@ const Certifications: React.FC = () => {
                 
                 <a 
                   href={cert.image} 
-                  className="inline-flex items-center justify-center gap-2 px-3 py-2 bg-black dark:bg-white text-white dark:text-black font-medium rounded-md hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md text-sm"
+                  className="inline-flex items-center justify-center gap-2 px-3 py-2 bg-primary text-primary-foreground font-medium rounded-none hover:bg-primary/90 transition-all duration-300 text-sm"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
