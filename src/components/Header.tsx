@@ -102,7 +102,7 @@ const Header: React.FC = () => {
               window.scrollTo({ top: 0, behavior: 'smooth' });
               setIsMenuOpen(false);
             }}
-            className="display-font text-xl sm:text-2xl font-bold text-[#f5f1e8] transition-colors cursor-pointer"
+            className={`display-font text-xl sm:text-2xl font-bold transition-colors cursor-pointer ${isScrolled ? 'text-[#14202f] dark:text-[#f5f1e8]' : 'text-[#f5f1e8]'}`}
           >
             {personalInfo.name}
           </button>
@@ -123,7 +123,7 @@ const Header: React.FC = () => {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-3">
-            <LanguageToggle className="text-[#f5f1e8]" />
+            <LanguageToggle className={isScrolled ? 'text-[#14202f] dark:text-[#f5f1e8]' : 'text-[#f5f1e8]'} />
             <ThemeToggle className={isScrolled ? 'text-[#14202f] dark:text-[#f5f1e8]' : 'text-[#f5f1e8]'} />
             <div className="w-px h-6 bg-[#14202f]/20 dark:bg-[#f5f1e8]/20"></div>
              <Button asChild
@@ -142,7 +142,7 @@ const Header: React.FC = () => {
                 variant="ghost" 
                 size="icon" 
                 asChild 
-                  className="text-[#f5f1e8] hover:bg-[#d8f52b]/10 hover:text-[#d8f52b] border border-transparent hover:border-[#d8f52b]/40 rounded-full transition-colors"
+                   className={`hover:bg-[#d8f52b]/10 hover:text-[#d8f52b] border border-transparent hover:border-[#d8f52b]/40 rounded-full transition-colors ${isScrolled ? 'text-[#14202f] dark:text-[#f5f1e8]' : 'text-[#f5f1e8]'}`}
               >
                 <a href={social.href} target={social.href.startsWith('mailto:') ? undefined : '_blank'} rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'} aria-label={social.label}>
                   <social.icon className="h-5 w-5" aria-hidden="true" />
@@ -153,13 +153,13 @@ const Header: React.FC = () => {
 
           {/* Mobile Actions - Fixed spacing and accessibility */}
           <div className="lg:hidden flex items-center space-x-2">
-             <LanguageToggle className="text-[#f5f1e8]" />
-             <ThemeToggle className="text-[#f5f1e8]" />
+             <LanguageToggle className={isScrolled ? 'text-[#14202f] dark:text-[#f5f1e8]' : 'text-[#f5f1e8]'} />
+             <ThemeToggle className={isScrolled ? 'text-[#14202f] dark:text-[#f5f1e8]' : 'text-[#f5f1e8]'} />
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-[#f5f1e8] hover:text-[#d8f52b] transition-colors w-10 h-10 flex items-center justify-center"
+                className={`hover:text-[#d8f52b] transition-colors w-10 h-10 flex items-center justify-center ${isScrolled ? 'text-[#14202f] dark:text-[#f5f1e8]' : 'text-[#f5f1e8]'}`}
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

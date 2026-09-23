@@ -10,12 +10,12 @@ import omMuktinathDentalHomeImage from '@/assets/images/ommuktinathdentalhome.pn
 
 export const personalInfo = {
   name: "Bikash Ghimire",
-  title: "Software Developer",
-  tagline: "Building exceptional web experiences with modern technologies",
-  bio: "Ambitious, Optimistic Web Developer with the skillsets of JavaScript, React, TypeScript, Node JS for modern web development with the ability to work in a fast-changing environment",
-  location: "Helsinki, Finland",
+  title: "Full Stack Product Engineer",
+  tagline: "Enterprise design systems, product development, and AI-augmented engineering",
+  bio: "Full Stack Product Engineer with 4+ years of experience building production-ready applications, scalable frontend platforms, and enterprise design systems. Currently owning and architecting the company-wide design system at Datadrivers Oy.",
+  location: "Helsinki Metropolitan Area, Finland",
   email: "bikashghimire2610@gmail.com",
-  website: "https://bikashghimire.dev",
+  website: "https://bikashghimire.com",
   github: "https://github.com/bikashghimire",
   linkedin: "https://linkedin.com/in/bikashghimire",
   twitter: ""
@@ -24,75 +24,46 @@ export const personalInfo = {
 export const experience = [
   {
     id: 1,
-    company: "Datadrivers Oy",
-    position: "Software Developer",
+    company: "Datadrivers Oy · CAP-GROUP OY",
+    position: "Software Engineer / Design System / Product Development",
     duration: "Mar 2025 - Present",
     location: "Helsinki, Finland",
-    description: "Architected an enterprise-grade design system from the ground up, driving UI/UX consistency across multiple product lines and significantly improving development velocity. Spearheaded front-end R&D initiatives by evaluating next-generation frameworks and authoring Architecture Decision Records (ADRs) to guide scalable component library selection. Developed a comprehensive, accessible, and performant component library using TypeScript, React, and Tailwind CSS. Established robust development infrastructure including Storybook documentation, design tokens, and automated testing frameworks. Collaborated cross-functionally with product, design, and backend teams to deliver seamless user experiences for flagship platforms such as Webauto and Fleetskills. Additionally, mentored teams on modern front-end best practices, component-driven development, and CI/CD workflows.",
-    technologies: [
-      "JavaScript",
-      "React",
-      "Storybook",
-      "TypeScript",
-      "Web Components",
-      "SASS",
-      "Jest",
-      "Azure",
-      "Azure DevOps",
-      "Tailwind CSS",
-      "Material UI",
-      "Git",
-      "CI/CD",
-      "shadcn/ui",
-      "Next.js",
-      "Figma",
-    ],
+    description: "Datadrivers Oy, part of CAP Group, builds large-scale digital platforms for driver training and logistics. I own and architect the enterprise design system used across multiple SaaS products, while contributing across the stack to modern React applications and legacy PHP-based platforms serving thousands of customers.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Web Components", "Storybook", "NestJS", "PHP", "PostgreSQL", "Azure DevOps", "GitLab", "CI/CD"],
     achievements: [
-      "Architected enterprise-grade design system from the ground up",
-      "Improved development velocity across multiple product lines",
-      "Established robust development infrastructure with Storybook and design tokens",
-      "Mentored teams on modern front-end best practices"
+      "Own and architect the company-wide design system across multiple SaaS products",
+      "Established component architecture, theming, accessibility, testing, documentation, and adoption practices",
+      "Lead frontend R&D initiatives and author architecture decision records",
+      "Drive adoption of agentic AI workflows for prototyping, implementation, testing, and documentation"
     ]
   },
   {
     id: 2,
     company: "Metso",
-    position: "Software Developer",
-    duration: "May 2024 - Jan 2025",
+    position: "Software Engineer - Design System Team",
+    duration: "May 2023 - Jan 2025",
     location: "Espoo, Finland",
-    description: "At Metso, I led the development of scalable design system UI libraries, including a React-based framework and a framework-agnostic web components library, collectively achieving 100,000+ npm downloads. I ensured components were reusable, accessible, and performance-optimized, adhering to WCAG standards and collaborating with cross-functional teams. My work on the design system earned recognition at the Metso Innovation Award 2024 for its impact on UI/UX standardization and scalability. Additionally, I developed AI-driven solutions in Azure using OpenAI Studio, integrated CI/CD workflows, and deployed static web applications.",
-    technologies: [
-      "JavaScript",
-      "React",
-      "Storybook",
-      "TypeScript",
-      "Web Components",
-      "SASS",
-      "Jest",
-      "Azure",
-      "Azure OpenAI Studio",
-      "CI/CD",
-      "Figma",
-    ],
+    description: "Metso is a global industrial technology company operating in more than 50 countries with 17,000+ employees. I helped build and scale enterprise design system libraries used by global product teams, combining reusable UI patterns, accessibility standards, automated testing, and reliable release practices.",
+    technologies: ["JavaScript", "TypeScript", "React", "Web Components", "Storybook", "PHP", "Node.js", "Figma", "zeroHeight", "Azure DevOps", "GitLab", "CI/CD", "Maze", "JIRA", "Confluence"],
     achievements: [
-      "Led development of design system UI libraries achieving 100,000+ npm downloads",
-      "Earned recognition at Metso Innovation Award 2024",
-      "Developed AI-driven solutions in Azure using OpenAI Studio",
-      "Ensured components were accessible and performance-optimized per WCAG standards"
+      "Developed and released component libraries exceeding 100,000 npm downloads",
+      "Contributed to an enterprise design system supporting multiple product teams",
+      "Improved quality through automated testing, versioning, branding, and accessibility standards",
+      "Collaborated with designers, UX researchers, and engineers across global products"
     ]
   },
   {
     id: 3,
-    company: "Funky Salsa Oy",
-    position: "Web Developer",
+    company: "Nordevi Technologies",
+    position: "Developer",
     duration: "Aug 2022 - Mar 2023",
     location: "Helsinki, Finland",
-    description: "Developed an order-handling web application with modern features from scratch using modern features and practices",
-    technologies: ["SASS", "JavaScript", "React", "Firebase"],
+    description: "Delivered Nordevi Health, an EMR application for dental clinics, end to end from design and development to production deployment and CI/CD as the responsible engineer. Also delivered frontend solutions and internal dashboards for international clients in Finland, Oman, and Australia.",
+    technologies: ["React", "TypeScript", "Node.js", "SQL", "CI/CD", "Cloud Platforms"],
     achievements: [
-      "Built order-handling web application from scratch",
-      "Implemented modern web development practices",
-      "Delivered production-ready application"
+      "Delivered an EMR application for dental clinics from design through production",
+      "Built full-stack solutions with React, Node.js, SQL, and deployment pipelines",
+      "Set up CI/CD workflows and deployment processes to reduce manual release overhead"
     ]
   },
   {
@@ -101,12 +72,12 @@ export const experience = [
     position: "Full Stack Developer",
     duration: "January 2022 - June 2022",
     location: "Helsinki, Finland",
-    description: "Joined through the six-month intensive full-stack program for modern web development with the stacks of React, TypeScript, NodeJS, MongoDB, SQL & PostgreSQL with the role of Full stack developer.",
-    technologies: ["HTML", "CSS", "JavaScript", "React", "MongoDB"],
+    description: "Completed an intensive full-stack engineering program focused on React, TypeScript, Node.js, REST APIs, databases, testing, and Agile Git-based teamwork.",
+    technologies: ["React", "TypeScript", "Node.js", "REST APIs", "Databases", "Testing", "Agile"],
     achievements: [
       "Completed six-month intensive full-stack program",
-      "Learned modern web development stacks",
-      "Worked with React, TypeScript, NodeJS, MongoDB, SQL & PostgreSQL"
+      "Built practical full-stack applications and APIs",
+      "Worked in an Agile, Git-based engineering team"
     ]
   },
   {
@@ -114,23 +85,12 @@ export const experience = [
     company: "Centria University R & D",
     position: "Software Developer Intern",
     duration: "July 2021 - December 2021",
-    location: "Kokkola, Finland",
-    description: "During my six-month internship at Centria University of Applied Sciences in Kokkola, I engaged in two significant projects, one in Game Development and the other in Web Development.",
-    technologies: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "PHP",
-      "MySQL",
-      "C++",
-      "Arduino",
-      "Raspberry Pi",
-      "Agile Methodology",
-    ],
+    location: "Finland",
+    description: "Contributed to web and software projects for internal stakeholders, gaining early production experience across frontend development, APIs, and technical documentation.",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL", "C++", "Arduino", "Raspberry Pi"],
     achievements: [
-      "Completed two significant projects in Game Development and Web Development",
-      "Gained experience with Arduino and Raspberry Pi",
-      "Applied Agile Methodology in real-world projects"
+      "Contributed to internal web and software projects",
+      "Built early experience in frontend development, APIs, and documentation"
     ]
   }
 ];
@@ -140,9 +100,9 @@ export const education = [
   {
     id: 1,
     institution: "Åbo Akademi University",
-    degree: "Masters Degree in Information Technology, Computer Software Engineering",
-    duration: "Aug 2023 - Feb 2025",
-    location: "Turku, Finland",
+    degree: "MSc, Information Technology (Software Engineering)",
+    duration: "2023 - April 2026",
+    location: "Finland",
     coursework: [
       "Artificial Intelligence",
       "Software Quality",
@@ -160,16 +120,16 @@ export const education = [
       "Analytics for Industrial Internet",
     ],
     achievements: [
-      "Pursuing advanced studies in software engineering and AI",
-      "Focus on modern web technologies and cloud computing"
+      "Advanced studies in software engineering, AI, and reliable software construction",
+      "Focus on modern web technologies, cloud computing, and data science"
     ]
   },
   {
     id: 2,
     institution: "Centria University of Applied Sciences",
-    degree: "Bachelor's degree in Information Technology, Computer Software Engineering",
-    duration: "Aug 2017 - Dec 2021",
-    location: "Kokkola, Finland",
+    degree: "BEng, Information Technology (Software Engineering)",
+    duration: "2017 - 2021",
+    location: "Finland",
     coursework: [
       "Extent of Studies : 240 Cr.",
       "Completed Studies : 275 Cr.",
@@ -187,104 +147,23 @@ export const education = [
       "Project Management",
     ],
     achievements: [
-      "Completed 275 credits (exceeding 240 credit requirement)",
-      "Comprehensive foundation in software engineering"
+      "Completed a Bachelor of Engineering in software engineering",
+      "Built a broad foundation across software construction, networks, embedded systems, and project work"
     ]
   }
 ];
 
 export const certifications = [
-  {
-    id: 1,
-    name: "Design Systems with Storybook, v2",
-    issuer: "Frontend Masters",
-    date: "2025",
-    credentialId: "AWS-CSA-2023-001",
-    image: "https://static.frontendmasters.com/ud/c/496fa182a0/oBHqaLwshU/design-systems-v2.pdf",
-    tags: ["Design Systems", "Storybook", "Component Libraries", "Frontend"]
-  },
-  {
-    id: 2,
-    name: "100 Days of Code - 2023 Web Development Bootcamp",
-    issuer: "Udemy",
-    date: "2023",
-    credentialId: "GCP-PD-2023-001",
-    image:"https://www.udemy.com/certificate/UC-d4a92cc0-4fba-48ac-aa96-fbef4b8e0813/",
-    tags: ["Cloud Computing", "GCP", "DevOps", "Backend"]
-  },
-  {
-    id: 3,
-    name: "The Complete Web Developer in 2023: Zero to Mastery",
-    issuer: "Udemy",
-    date: "2022",
-    credentialId: "META-RD-2022-001",
-    image: "https://www.udemy.com/certificate/UC-af734f50-a38a-41d4-b7ed-bddac593459f/",
-    tags: ["React", "JavaScript", "Frontend", "Web Development"]
-  },
-  {
-    id: 4,
-    name: "Azure AI services Essentials Training",
-    issuer: "LinkedIn Learning",
-    date: "2023",
-    credentialId: "FCC-JS-2022-001",
-    image: "https://www.linkedin.com/learning/certificates/877362e2aaf97edd2ede834e3664986fd3c85bc924e78bb877072853462de9bc",
-    tags: ["JavaScript", "Algorithms", "Data Structures", "Programming"]
-  },
-  {
-    id: 5,
-    name: "Cert Prep: Scrum Master",
-    issuer: "LinkedIn Learning",
-    date: "2023",
-    credentialId: "MS-TS-2021-001",
-    image: "https://www.linkedin.com/learning/certificates/9375f65d0a9dee58925ffda29b7fdf65705d08ea2d20a8c1eec33c6c56c4eb86",
-    tags: ["TypeScript", "JavaScript", "Frontend", "Type Safety"]
-  },
-  {
-    id: 6,
-    name: "JavaScript Essentials Training",
-    issuer: "LinkedIn Learning",
-    date: "2023",
-    credentialId: "DOCKER-CA-2021-001",
-    image: "https://www.linkedin.com/learning/certificates/48f4cede3d93b36cd76a80a19b4aebb3ef7db63615793318ee60ae7c327eb539",
-    tags: ["Docker", "Containerization", "DevOps", "Infrastructure"]
-  },
-  {
-    id: 7,
-    name: "React.js Essential Training",
-    issuer: "LinkedIn Learning",
-    date: "2023",
-    credentialId: "DOCKER-CA-2021-001",
-    image: "https://www.linkedin.com/learning/certificates/58ebc1a0f8a4172b342a864fef2a6c21c1cb144155aa2e16ae00f98943e30b7f",
-    tags: ["Docker", "Containerization", "DevOps", "Infrastructure"]
-  },
-  {
-    id: 8,
-    name: "Mern Essentials Training",
-    issuer: "LinkedIn Learning",
-    date: "2022",
-    credentialId: "DOCKER-CA-2021-001",
-    image: "https://www.linkedin.com/learning/certificates/258a3bbfea4b4c300247bed138075c91f09969625274692e2d5ac1b310bf3656?trk=share_certificate",
-    tags: ["Docker", "Containerization", "DevOps", "Infrastructure"]
-  },
-  {
-    id: 9,
-    name: "Cultivating a Growth Mindset",
-    issuer: "LinkedIn Learning",
-    date: "2021",
-    credentialId: "DOCKER-CA-2021-001",
-    image: "https://www.linkedin.com/learning/certificates/08ea6d2ef2dad81416fbed8f195eefd2a6db123f012d1c804687aac3b60dabc9?trk=share_certificate",
-    tags: ["Docker", "Containerization", "DevOps", "Infrastructure"]
-  },
-  {
-    id: 10,
-    name: "React Server-Side Rendering",
-    issuer: "LinkedIn Learning",
-    date: "2022",
-    credentialId: "DOCKER-CA-2021-001",
-    image: "https://www.linkedin.com/learning/certificates/0018342107376183171d78821d0b01eb7ea19f1ed12de846dd68c58110892e0f?trk=share_certificate",
-    tags: ["Docker", "Containerization", "DevOps", "Infrastructure"]
-  }
+  { id: 1, name: "Design Systems with Storybook v2", issuer: "Frontend Masters", date: "2025", credentialId: "", image: "#", tags: ["Design Systems", "Storybook", "Component Libraries"] },
+  { id: 2, name: "React: Server-Side Rendering", issuer: "Professional Certification", date: "", credentialId: "", image: "#", tags: ["React", "SSR", "Frontend"] },
+  { id: 3, name: "React: Creating and Hosting a Full-Stack Site", issuer: "Professional Certification", date: "", credentialId: "", image: "#", tags: ["React", "Full Stack", "Deployment"] },
+  { id: 4, name: "Build REST APIs with FastAPI", issuer: "Professional Certification", date: "", credentialId: "", image: "#", tags: ["REST APIs", "FastAPI", "Backend"] },
+  { id: 5, name: "Test Automation Foundations", issuer: "Professional Certification", date: "", credentialId: "", image: "#", tags: ["Testing", "Automation", "Quality"] },
+  { id: 6, name: "AWS Cloud Practitioner Training", issuer: "Integrify", date: "", credentialId: "", image: "#", tags: ["AWS", "Cloud", "Infrastructure"] }
+];
 
+export const publications = [
+  "AI-Driven Design Systems: Enhancing Efficiency, Consistency, and Collaboration with Azure OpenAI: A Case Study of Modes (Metso Design System)"
 ];
 
 export const projects = [
@@ -484,23 +363,19 @@ export const projects = [
 
 export const skills = [
   {
-    category: "Frontend & Frameworks",
-    items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Web Components", "Next JS", "SASS", "Material UI", "SvelteKit"]
+    category: "Frontend",
+    items: ["React", "TypeScript", "JavaScript", "Web Components", "Storybook", "Tailwind CSS", "Next.js", "HTML", "CSS", "Accessibility (WCAG)", "Design Tokens"]
   },
   {
-    category: "Dev Tools & Design",
-    items: ["Storybook", "Git", "CI/CD", "JEST", "Figma"]
+    category: "Backend",
+    items: ["NestJS", "Node.js", "PHP", "REST APIs", "Authentication & Permissions", "PostgreSQL", "MySQL"]
   },
   {
-    category: "Backend & Server",
-    items: ["Node JS", "Express", "Express JS", "PHP"]
+    category: "DevOps & Tools",
+    items: ["Azure DevOps", "GitHub", "GitLab", "CI/CD", "Automated Testing", "Figma", "zeroHeight", "JIRA", "Confluence"]
   },
   {
-    category: "Databases",
-    items: ["SQL", "MongoDB"]
-  },
-  {
-    category: "Other Technologies",
-    items: ["Redux", "Python"]
+    category: "AI Engineering",
+    items: ["Agentic Coding Workflows", "Claude Code", "OpenCode", "GitHub Copilot", "Figma MCP", "Azure OpenAI"]
   }
 ];
