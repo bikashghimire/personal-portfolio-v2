@@ -6,23 +6,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 # Development
-npm run dev          # Start Vite dev server
+pnpm dev             # Start Vite dev server
 
 # Build & Type Check
-npm run build        # tsc -b && vite build
+pnpm build           # tsc -b && vite build
 
 # Lint
-npm run lint         # ESLint across the project
+pnpm lint            # ESLint across the project
 
 # Tests
-npm test             # Vitest in watch mode
-npm run test:run     # Run tests once (CI)
-npm run test:coverage  # Coverage report via v8
+pnpm test             # Vitest in watch mode
+pnpm test:run         # Run tests once (CI)
+pnpm test:coverage    # Coverage report via v8
 ```
 
 To run a single test file:
 ```bash
-npx vitest run src/__tests__/App.test.tsx
+pnpm exec vitest run src/__tests__/App.test.tsx
 ```
 
 ## Architecture
