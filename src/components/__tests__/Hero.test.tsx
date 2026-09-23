@@ -114,104 +114,9 @@ describe('Hero', () => {
     document.body.removeChild(aboutSection);
   });
 
-  it('downloads resume when download button is clicked', async () => {
-    const user = userEvent.setup();
-    const mockBlob = new Blob(['mock pdf content'], { type: 'application/pdf' });
-    const mockUrl = 'blob:mock-url';
-    const createObjectURLSpy = vi.spyOn(window.URL, 'createObjectURL').mockReturnValue(mockUrl);
-    const revokeObjectURLSpy = vi.spyOn(window.URL, 'revokeObjectURL').mockImplementation(() => {});
-    const clickSpy = vi.fn();
-
-    (global.fetch as ReturnType<typeof vi.fn>).mockResolvedValueOnce({
-      blob: () => Promise.resolve(mockBlob),
-    });
-
-    // Mock link click
-    Object.defineProperty(HTMLAnchorElement.prototype, 'click', {
-      configurable: true,
-      value: clickSpy,
-    });
-
-    // Mock appendChild to track calls but not break React rendering
-    const originalAppendChild = document.body.appendChild.bind(document.body);
-    const appendChildSpy = vi.spyOn(document.body, 'appendChild').mockImplementation((node) => {
-      // If it's an anchor element (for download), track it but don't actually append
-      if (node instanceof HTMLAnchorElement) {
-        return node;
-      }
-      // For other elements (React's rendering), use the original implementation
-      return originalAppendChild(node);
-    });
-
-    const removeSpy = vi.spyOn(HTMLElement.prototype, 'remove').mockImplementation(() => {});
-
+  it('renders a downloadable resume link', () => {
     customRender(<Hero />);
-
-    // Wait for component to render and find buttons
-    await waitFor(() => {
-      const buttons = screen.queryAllByRole('button');
-      expect(buttons.length).toBeGreaterThan(0);
-    });
-
-    // Get all buttons and find the download button by role
-    const buttons = screen.getAllByRole('button');
-    const downloadButton = buttons.find(button => 
-      button.textContent?.includes('Download') || button.textContent?.includes('Resume')
-    );
-    
-    expect(downloadButton).toBeDefined();
-    if (downloadButton) {
-      await user.click(downloadButton);
-    }
-
-    await waitFor(() => {
-      expect(global.fetch).toHaveBeenCalledWith('/mock-resume.pdf');
-      expect(createObjectURLSpy).toHaveBeenCalled();
-      expect(clickSpy).toHaveBeenCalled();
-      expect(revokeObjectURLSpy).toHaveBeenCalledWith(mockUrl);
-    });
-
-    createObjectURLSpy.mockRestore();
-    revokeObjectURLSpy.mockRestore();
-    appendChildSpy.mockRestore();
-    removeSpy.mockRestore();
-    // Restore original click
-    Object.defineProperty(HTMLAnchorElement.prototype, 'click', {
-      configurable: true,
-      value: HTMLAnchorElement.prototype.click,
-    });
-  });
-
-  it('opens resume in new tab if download fails', async () => {
-    const user = userEvent.setup();
-    const openSpy = vi.spyOn(window, 'open').mockImplementation(() => null);
-
-    (global.fetch as ReturnType<typeof vi.fn>).mockRejectedValueOnce(new Error('Download failed'));
-
-    customRender(<Hero />);
-
-    // Wait for component to render and find buttons
-    await waitFor(() => {
-      const buttons = screen.queryAllByRole('button');
-      expect(buttons.length).toBeGreaterThan(0);
-    });
-
-    // Get all buttons and find the download button by role
-    const buttons = screen.getAllByRole('button');
-    const downloadButton = buttons.find(button => 
-      button.textContent?.includes('Download') || button.textContent?.includes('Resume')
-    );
-    
-    expect(downloadButton).toBeDefined();
-    if (downloadButton) {
-      await user.click(downloadButton);
-    }
-
-    await waitFor(() => {
-      expect(openSpy).toHaveBeenCalledWith('/mock-resume.pdf', '_blank');
-    });
-
-    openSpy.mockRestore();
+    expect(screen.getByText('Download Resume').closest('a')).toHaveAttribute('download', 'ghimire_bikash_cv.pdf');
   });
 
   it('renders scroll indicator', () => {
@@ -231,4 +136,3 @@ describe('Hero', () => {
     expect(getContextSpy).toHaveBeenCalledWith('2d');
   });
 });
-

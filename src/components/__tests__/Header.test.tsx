@@ -133,48 +133,9 @@ describe('Header', () => {
     openSpy.mockRestore();
   });
 
-  it('downloads resume when download button is clicked', async () => {
-    const user = userEvent.setup();
-    const mockBlob = new Blob(['mock pdf content'], { type: 'application/pdf' });
-    const mockUrl = 'blob:mock-url';
-    const createObjectURLSpy = vi.spyOn(window.URL, 'createObjectURL').mockReturnValue(mockUrl);
-    const revokeObjectURLSpy = vi.spyOn(window.URL, 'revokeObjectURL').mockImplementation(() => {});
-    const appendChildSpy = vi.spyOn(document.body, 'appendChild').mockImplementation(() => {
-      return document.createElement('a');
-    });
-    const removeSpy = vi.spyOn(HTMLElement.prototype, 'remove').mockImplementation(() => {});
-    const clickSpy = vi.fn();
-
-    (global.fetch as ReturnType<typeof vi.fn>).mockResolvedValueOnce({
-      blob: () => Promise.resolve(mockBlob),
-    });
-
-    Object.defineProperty(HTMLAnchorElement.prototype, 'click', {
-      configurable: true,
-      value: clickSpy,
-    });
-
+  it('renders a downloadable resume link', () => {
     customRender(<Header />);
-
-    // Download Resume button is only visible on desktop (lg:flex)
-    // In test environment, we need to find it by text or role
-    const downloadButton = screen.queryByText('Download Resume');
-    if (downloadButton) {
-      await user.click(downloadButton);
-      
-      await waitFor(() => {
-        expect(global.fetch).toHaveBeenCalledWith('/mock-resume.pdf');
-        expect(clickSpy).toHaveBeenCalled();
-      });
-    } else {
-      // If button is not visible (mobile view), skip the test
-      expect(true).toBe(true);
-    }
-
-    createObjectURLSpy.mockRestore();
-    revokeObjectURLSpy.mockRestore();
-    appendChildSpy.mockRestore();
-    removeSpy.mockRestore();
+    expect(screen.getByText('Download Resume').closest('a')).toHaveAttribute('download', 'ghimire_bikash_cv.pdf');
   });
 
   it('scrolls to top when logo is clicked', async () => {
@@ -209,4 +170,3 @@ describe('Header', () => {
     expect(allSocialLinks.length).toBeGreaterThan(0);
   });
 });
-

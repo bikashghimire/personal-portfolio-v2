@@ -26,26 +26,23 @@ export function ThemeProvider({
   storageKey = 'portfolio-theme',
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
+  const [theme, setTheme] = useState<Theme>(() => {
+    const stored = localStorage.getItem(storageKey);
+    return stored === 'light' || stored === 'dark' || stored === 'system' ? stored : defaultTheme;
+  });
 
   useEffect(() => {
     const root = window.document.documentElement;
 
-    root.classList.remove('light', 'dark');
-
-    if (theme === 'system') {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
-        .matches
-        ? 'dark'
-        : 'light';
-
-      root.classList.add(systemTheme);
-      return;
-    }
-
-    root.classList.add(theme);
+    const media = window.matchMedia?.('(prefers-color-scheme: dark)');
+    const applyTheme = () => {
+      root.classList.remove('light', 'dark');
+      root.classList.add(theme === 'system' ? (media?.matches ? 'dark' : 'light') : theme);
+    };
+    applyTheme();
+    if (!media) return;
+    media.addEventListener?.('change', applyTheme);
+    return () => media.removeEventListener?.('change', applyTheme);
   }, [theme]);
 
   const value = {

@@ -25,6 +25,7 @@ export default function Chatbot() {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const responseTimerRef = useRef<number | null>(null);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -39,6 +40,10 @@ export default function Chatbot() {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
   }, [isOpen]);
+
+  useEffect(() => () => {
+    if (responseTimerRef.current) window.clearTimeout(responseTimerRef.current);
+  }, []);
 
   const sendMessage = useCallback((text: string) => {
     if (!text.trim()) return;
@@ -55,7 +60,7 @@ export default function Chatbot() {
     setIsTyping(true);
 
     // Simulate typing delay for natural feel
-    setTimeout(() => {
+    responseTimerRef.current = window.setTimeout(() => {
       const response = processMessage(text);
       const botMessage: Message = {
         id: `bot-${Date.now()}`,
@@ -133,7 +138,7 @@ export default function Chatbot() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4" aria-live="polite" aria-label="Chat messages">
               {messages.map(message => (
                 <div
                   key={message.id}
@@ -193,7 +198,7 @@ export default function Chatbot() {
                 <p className="text-xs text-muted-foreground mb-2">Suggested questions:</p>
                 <div className="flex flex-wrap gap-1.5">
                   {getSuggestedQuestions().map((q, i) => (
-                    <button
+                    <button type="button"
                       key={i}
                       onClick={() => handleSuggestionClick(q)}
                       className="text-xs px-2.5 py-1.5 rounded-full border border-border bg-background hover:bg-accent hover:text-accent-foreground text-foreground transition-colors"

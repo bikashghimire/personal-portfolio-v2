@@ -12,30 +12,12 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useTranslation();
 
-  const downloadResume = async () => {
-    try {
-      const response = await fetch(resumePdf);
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'ghimire_bikash_cv.pdf';
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      window.URL.revokeObjectURL(url);
-    } catch {
-      // Fallback to opening the file if download fails
-      window.open(resumePdf, '_blank');
-    }
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -143,17 +125,16 @@ const Header: React.FC = () => {
             <LanguageToggle />
             <ThemeToggle />
             <div className="w-px h-6 bg-black dark:bg-white"></div>
-            <Button
-              variant="outline"
-              onClick={downloadResume}
+             <Button asChild
+               variant="outline"
               className="rounded-full px-4 py-2 border-gray-300 dark:border-gray-600 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
-            >
-              Download Resume
-            </Button>
+             >
+               <a href={resumePdf} download="ghimire_bikash_cv.pdf">Download Resume</a>
+             </Button>
             {[
-              { icon: Github, href: personalInfo.github },
-              { icon: Linkedin, href: personalInfo.linkedin },
-              { icon: Mail, href: `mailto:${personalInfo.email}` }
+               { icon: Github, href: personalInfo.github, label: 'GitHub' },
+               { icon: Linkedin, href: personalInfo.linkedin, label: 'LinkedIn' },
+               { icon: Mail, href: `mailto:${personalInfo.email}`, label: 'Email' }
             ].map((social, index) => (
               <Button 
                 key={index} 
@@ -162,7 +143,7 @@ const Header: React.FC = () => {
                 asChild 
                 className="text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-900 border border-transparent hover:border-gray-300 dark:hover:border-gray-700 rounded-full transition-colors"
               >
-                <a href={social.href} target="_blank" rel="noopener noreferrer">
+                <a href={social.href} target={social.href.startsWith('mailto:') ? undefined : '_blank'} rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'} aria-label={social.label}>
                   <social.icon className="h-5 w-5" aria-hidden="true" />
                 </a>
               </Button>

@@ -15,16 +15,16 @@ The testing setup includes:
 
 ```bash
 # Run tests in watch mode
-npm test
+pnpm test
 
 # Run tests once
-npm run test:run
+pnpm test:run
 
 # Run tests with UI
-npm run test:ui
+pnpm test:ui
 
 # Run tests with coverage
-npm run test:coverage
+pnpm test:coverage
 ```
 
 ## Test Structure
@@ -95,4 +95,3 @@ Common mocks are set up in `src/test/setup.ts`:
 ### Async operations timing out
 - Use `waitFor` from React Testing Library
 - Increase timeout if needed: `waitFor(() => {...}, { timeout: 3000 })`
-

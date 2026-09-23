@@ -181,6 +181,17 @@ describe('Projects', () => {
     }
   });
 
+  it('closes the case study modal with Escape', async () => {
+    const user = userEvent.setup();
+    customRender(<Projects />);
+
+    await user.click(screen.getAllByText('Case Study')[0]);
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+
+    await user.keyboard('{Escape}');
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
+
   it('renders project links with correct attributes', () => {
     customRender(<Projects />);
 
@@ -200,4 +211,3 @@ describe('Projects', () => {
     });
   });
 });
-

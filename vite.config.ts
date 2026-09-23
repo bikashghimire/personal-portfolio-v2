@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  // @ts-expect-error - Type incompatibility between vite and vitest's bundled vite
   plugins: [react()],
   resolve: {
     alias: {

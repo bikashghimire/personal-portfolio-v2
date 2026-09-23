@@ -18,7 +18,7 @@ function normalize(text: string): string {
 
 function matchesAny(input: string, keywords: string[]): boolean {
   const n = normalize(input);
-  return keywords.some(k => n.includes(k));
+  return keywords.some(k => new RegExp(`\\b${k.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')}\\b`, 'i').test(n));
 }
 
 function getGreeting(): string {
@@ -143,7 +143,7 @@ export function processMessage(input: string): ChatResponse {
   const n = normalize(input);
 
   // Greetings
-  if (matchesAny(n, ['hello', 'hi', 'hey', 'howdy', 'greetings', 'good morning', 'good afternoon', 'good evening', 'sup', 'what\'s up'])) {
+  if (matchesAny(n, ['hello', 'hi', 'hey', 'howdy', 'greetings', 'good morning', 'good afternoon', 'good evening', 'sup', "what's up"])) {
     return { text: getGreeting() };
   }
 
@@ -170,7 +170,7 @@ export function processMessage(input: string): ChatResponse {
   }
 
   // Skills
-  if (matchesAny(n, ['skill', 'technologies', 'tech stack', 'what can he do', 'what does he know', 'programming language', 'framework', 'tools'])) {
+  if (matchesAny(n, ['skill', 'skills', 'technologies', 'tech stack', 'what can he do', 'what does he know', 'programming language', 'framework', 'tools'])) {
     return { text: getSkillsResponse() };
   }
 

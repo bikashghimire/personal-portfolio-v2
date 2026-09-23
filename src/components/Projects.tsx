@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -54,6 +54,20 @@ const Projects: React.FC = () => {
 
   const featuredProjects = filteredProjects.filter(p => p.featured);
   const otherProjects = filteredProjects.filter(p => !p.featured);
+
+  useEffect(() => {
+    if (openCaseStudyId === null) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpenCaseStudyId(null);
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [openCaseStudyId]);
 
   return (
     <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-black">
@@ -168,8 +182,8 @@ const Projects: React.FC = () => {
                         )}
                       </div>
                       <div className="flex flex-col xs:flex-row gap-3">
-                        <Button 
-                          size="sm" 
+                        <Button
+                          size="sm"
                           variant="outline" 
                           asChild 
                           className="flex-1 py-2.5 px-4 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 group/btn"
@@ -179,24 +193,24 @@ const Projects: React.FC = () => {
                             Code
                           </a>
                         </Button>
-                        <Button 
-                          size="sm" 
+                        {project.demo && <Button
+                          size="sm"
                           asChild 
                           className="flex-1 py-2.5 px-4 bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black text-white dark:text-black group/btn"
                         >
-                          <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                          <a href={project.demo} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} live demo`}>
                             <ExternalLink className="h-4 w-4 mr-2 group-hover/btn:rotate-12 transition-transform duration-300" />
                             Demo
                           </a>
-                        </Button>
-                      <Button
-                        size="sm"
+                        </Button>}
+                        <Button
+                          size="sm"
                         variant="outline"
                         onClick={() => setOpenCaseStudyId(project.id as number)}
                         className="py-2.5 px-4 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                       >
                         Case Study
-                      </Button>
+                       </Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -251,8 +265,8 @@ const Projects: React.FC = () => {
                         )}
                       </div>
                       <div className="flex flex-col xs:flex-row gap-2">
-                        <Button 
-                          size="sm" 
+                        <Button
+                          size="sm"
                           variant="outline" 
                           asChild 
                           className="flex-1 py-2.5 px-4 text-xs border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 group/btn"
@@ -262,16 +276,16 @@ const Projects: React.FC = () => {
                             Code
                           </a>
                         </Button>
-                        <Button 
-                          size="sm" 
+                        {project.demo && <Button
+                          size="sm"
                           asChild 
                           className="flex-1 py-2.5 px-4 text-xs bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black text-white dark:text-black group/btn"
                         >
-                          <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                          <a href={project.demo} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} live demo`}>
                             <ExternalLink className="h-3 w-3 mr-1 group-hover/btn:rotate-12 transition-transform duration-300" />
                             Demo
                           </a>
-                        </Button>
+                        </Button>}
                         <Button
                           size="sm"
                           variant="outline"
@@ -299,15 +313,15 @@ const Projects: React.FC = () => {
             </div>
           )}
           {openCaseStudyId !== null && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center">
-              <div className="absolute inset-0 bg-black/60 dark:bg-white/20" onClick={() => setOpenCaseStudyId(null)} />
-              <div className="relative z-10 max-w-2xl w-[92%] sm:w-[85%] bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl shadow-xl p-6">
+             <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="case-study-title">
+               <button type="button" aria-label="Close case study" className="absolute inset-0 bg-black/60 dark:bg-white/20 cursor-default" onClick={() => setOpenCaseStudyId(null)} />
+               <div className="relative z-10 max-h-[85vh] overflow-y-auto max-w-2xl w-[92%] sm:w-[85%] bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl shadow-xl p-6">
                 {(() => {
                   const project = projects.find(p => (p.id as number) === openCaseStudyId);
                   if (!project) return null;
                   return (
                     <div>
-                      <h3 className="text-2xl font-bold mb-2 text-black dark:text-white">{project.title}</h3>
+                       <h3 id="case-study-title" className="text-2xl font-bold mb-2 text-black dark:text-white">{project.title}</h3>
                       <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
                       <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">
                         <span className="font-semibold">Technologies: </span>

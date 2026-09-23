@@ -13,23 +13,6 @@ const Hero: React.FC = () => {
   const { t } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const downloadResume = async () => {
-    try {
-      const response = await fetch(resumePdf);
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'ghimire_bikash_cv.pdf';
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      window.URL.revokeObjectURL(url);
-    } catch {
-      window.open(resumePdf, '_blank');
-    }
-  };
-
   const scrollToAbout = () => {
     const element = document.querySelector('#about');
     if (element) {
@@ -62,6 +45,8 @@ const Hero: React.FC = () => {
         opacity: Math.random() * 0.3 + 0.1,
       });
     }
+    let animationFrame = 0;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       particles.forEach((particle) => {
@@ -74,7 +59,7 @@ const Hero: React.FC = () => {
         ctx.fillStyle = `rgba(0, 0, 0, ${particle.opacity})`; // black
         ctx.fill();
       });
-      requestAnimationFrame(animate);
+      if (!prefersReducedMotion) animationFrame = requestAnimationFrame(animate);
     };
     animate();
     const handleResize = () => {
@@ -82,7 +67,10 @@ const Hero: React.FC = () => {
       canvas.height = window.innerHeight;
     };
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      cancelAnimationFrame(animationFrame);
+    };
   }, []);
 
   return (
@@ -97,8 +85,7 @@ const Hero: React.FC = () => {
         <div className="flex items-center justify-center mb-10 animate-fade-in">
           <Badge variant="secondary" className="flex items-center gap-2 px-6 py-2 text-sm font-medium bg-white/80 dark:bg-black/80 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 shadow-sm">
             <MapPin className="h-4 w-4 text-gray-700 dark:text-gray-300" />
-            <span className="hidden xs:inline">{personalInfo.location}</span>
-            <span className="xs:hidden">Oulu, Finland</span>
+            <span>{personalInfo.location}</span>
           </Badge>
         </div>
         {/* Main heading with accent color */}
@@ -131,12 +118,14 @@ const Hero: React.FC = () => {
           <Button
             size="lg"
             variant="outline"
-            onClick={downloadResume}
+            asChild
             className="group w-full xs:w-auto px-10 py-6 text-xl font-semibold rounded-xl border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-md"
           >
-            <Download className="h-6 w-6 mr-3 group-hover:animate-bounce text-gray-700 dark:text-gray-300" />
-            <span className="hidden sm:inline">{t('hero.downloadResume')}</span>
-            <span className="sm:hidden">{t('hero.resume')}</span>
+            <a href={resumePdf} download="ghimire_bikash_cv.pdf">
+              <Download className="h-6 w-6 mr-3 group-hover:animate-bounce text-gray-700 dark:text-gray-300" />
+              <span className="hidden sm:inline">{t('hero.downloadResume')}</span>
+              <span className="sm:hidden">{t('hero.resume')}</span>
+            </a>
           </Button>
         </div>
         {/* Scroll indicator */}
