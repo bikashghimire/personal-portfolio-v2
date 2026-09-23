@@ -71,3 +71,12 @@ Element.prototype.scrollIntoView = vi.fn();
 // Mock window.scrollTo
 window.scrollTo = vi.fn();
 
+Object.defineProperty(window.URL, 'createObjectURL', {
+  writable: true,
+  value: vi.fn(),
+});
+
+Object.defineProperty(window.URL, 'revokeObjectURL', {
+  writable: true,
+  value: vi.fn(),
+});

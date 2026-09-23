@@ -1,4 +1,4 @@
-import React, { createContext, useState, ReactNode } from 'react';
+import React, { createContext, useEffect, useState, ReactNode } from 'react';
 
 export type Language = 'en' | 'fi';
 
@@ -129,7 +129,14 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en'); // English as default
+  const [language, setLanguage] = useState<Language>(() =>
+    localStorage.getItem('portfolio-language') === 'fi' ? 'fi' : 'en'
+  );
+
+  useEffect(() => {
+    localStorage.setItem('portfolio-language', language);
+    document.documentElement.lang = language;
+  }, [language]);
 
   const t = (key: string): string => {
     return translations[language][key as keyof typeof translations['en']] || key;
@@ -141,5 +148,4 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     </LanguageContext.Provider>
   );
 };
-
 

@@ -12,30 +12,12 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useTranslation();
 
-  const downloadResume = async () => {
-    try {
-      const response = await fetch(resumePdf);
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'ghimire_bikash_cv.pdf';
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      window.URL.revokeObjectURL(url);
-    } catch {
-      // Fallback to opening the file if download fails
-      window.open(resumePdf, '_blank');
-    }
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -101,10 +83,10 @@ const Header: React.FC = () => {
         />
       )}
       
-      <header className={`fixed top-0 right-0 w-full z-50 transition-all duration-300 backdrop-blur-sm ${
+      <header style={{ backgroundColor: isScrolled || isMenuOpen ? 'rgba(20, 32, 47, 0.95)' : 'rgba(20, 32, 47, 0.75)' }} className={`fixed top-0 right-0 w-full z-50 transition-all duration-300 backdrop-blur-md ${
         isScrolled || isMenuOpen
-          ? 'bg-white dark:bg-black border-b border-gray-200 dark:border-gray-800' 
-          : 'bg-transparent'
+          ? 'bg-white border-b border-[#f5f1e8]/15'
+          : 'bg-transparent border-b border-[#f5f1e8]/10'
       }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
@@ -120,7 +102,7 @@ const Header: React.FC = () => {
               window.scrollTo({ top: 0, behavior: 'smooth' });
               setIsMenuOpen(false);
             }}
-            className="text-xl sm:text-2xl font-bold text-black dark:text-white hover:opacity-80 transition-opacity cursor-pointer"
+            className="display-font text-xl sm:text-2xl font-bold text-[#f5f1e8] hover:text-[#d8f52b] transition-colors cursor-pointer"
           >
             {personalInfo.name}
           </button>
@@ -131,7 +113,7 @@ const Header: React.FC = () => {
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item)}
-                className="text-gray-900 dark:text-gray-100 font-medium relative px-3 py-2 rounded-md transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 dark:focus-visible:ring-gray-700"
+                className="mono-font text-[11px] uppercase tracking-[0.12em] text-[#c0c7ce] relative px-3 py-2 rounded-md transition-colors duration-200 hover:text-[#d8f52b] hover:bg-[#d8f52b]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8f52b]"
               >
                 {item.label}
               </button>
@@ -143,26 +125,25 @@ const Header: React.FC = () => {
             <LanguageToggle />
             <ThemeToggle />
             <div className="w-px h-6 bg-black dark:bg-white"></div>
-            <Button
-              variant="outline"
-              onClick={downloadResume}
-              className="rounded-full px-4 py-2 border-gray-300 dark:border-gray-600 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800"
-            >
-              Download Resume
-            </Button>
+             <Button asChild
+               variant="outline"
+               className="rounded-none px-4 py-2 border-[#d8f52b] text-[#d8f52b] hover:bg-[#d8f52b] hover:text-[#14202f]"
+             >
+               <a href={resumePdf} download="ghimire_bikash_cv.pdf">Download Resume</a>
+             </Button>
             {[
-              { icon: Github, href: personalInfo.github },
-              { icon: Linkedin, href: personalInfo.linkedin },
-              { icon: Mail, href: `mailto:${personalInfo.email}` }
+               { icon: Github, href: personalInfo.github, label: 'GitHub' },
+               { icon: Linkedin, href: personalInfo.linkedin, label: 'LinkedIn' },
+               { icon: Mail, href: `mailto:${personalInfo.email}`, label: 'Email' }
             ].map((social, index) => (
               <Button 
                 key={index} 
                 variant="ghost" 
                 size="icon" 
                 asChild 
-                className="text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-900 border border-transparent hover:border-gray-300 dark:hover:border-gray-700 rounded-full transition-colors"
+                 className="text-[#f5f1e8] hover:bg-[#d8f52b]/10 hover:text-[#d8f52b] border border-transparent hover:border-[#d8f52b]/40 rounded-full transition-colors"
               >
-                <a href={social.href} target="_blank" rel="noopener noreferrer">
+                <a href={social.href} target={social.href.startsWith('mailto:') ? undefined : '_blank'} rel={social.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'} aria-label={social.label}>
                   <social.icon className="h-5 w-5" aria-hidden="true" />
                 </a>
               </Button>
@@ -177,7 +158,7 @@ const Header: React.FC = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-black dark:text-white hover:opacity-70 transition-opacity w-10 h-10 flex items-center justify-center"
+               className="text-[#f5f1e8] hover:text-[#d8f52b] transition-colors w-10 h-10 flex items-center justify-center"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -191,20 +172,20 @@ const Header: React.FC = () => {
             ? 'max-h-96 opacity-100 visible' 
             : 'max-h-0 opacity-0 invisible overflow-hidden'
         }`}>
-          <nav className="py-4 border-t-2 border-black dark:border-white bg-white dark:bg-black">
+           <nav className="py-4 border-t border-[#f5f1e8]/15 bg-[#14202f]">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => handleNavClick(item)}
-                  className="text-left text-gray-900 dark:text-gray-100 font-medium py-3 px-4 rounded-md w-full transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 dark:focus-visible:ring-gray-700"
+                   className="text-left text-[#f5f1e8] font-medium py-3 px-4 rounded-md w-full transition-colors duration-200 hover:bg-[#d8f52b]/10 hover:text-[#d8f52b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d8f52b]"
                 >
                   {item.label}
                 </button>
               ))}
               
               {/* Mobile Social Links - Better spacing */}
-              <div className="flex justify-center space-x-4 pt-4 mt-2 border-t-2 border-black dark:border-white">
+               <div className="flex justify-center space-x-4 pt-4 mt-2 border-t border-[#f5f1e8]/15">
                 {[
                   { icon: Github, href: personalInfo.github, label: 'GitHub' },
                   { icon: Linkedin, href: personalInfo.linkedin, label: 'LinkedIn' },

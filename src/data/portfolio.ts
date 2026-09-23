@@ -15,7 +15,7 @@ export const personalInfo = {
   bio: "Ambitious, Optimistic Web Developer with the skillsets of JavaScript, React, TypeScript, Node JS for modern web development with the ability to work in a fast-changing environment",
   location: "Helsinki, Finland",
   email: "bikashghimire2610@gmail.com",
-  website: "",
+  website: "https://bikashghimire.dev",
   github: "https://github.com/bikashghimire",
   linkedin: "https://linkedin.com/in/bikashghimire",
   twitter: ""
@@ -407,7 +407,7 @@ export const projects = [
     technologies: ["React", "JavaScript", "ExpressJS"],
     image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
     github: "https://github.com/bikashghimire/react-aws",
-    demo: "Maintaing, refining",
+    demo: "",
     featured: false
   },
   {
@@ -426,7 +426,7 @@ export const projects = [
     description: "A website for a restaurant in Helsinki",
     technologies: ["BootStrap", "HTML", "CSS"],
     image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
-    github: "https://github.com/bikashghimire/typescript-note-taking-app",
+    github: "https://github.com/bikashghimire/sherpa-food-and-bar-dev-team",
     demo: "https://bikashghimire.github.io/sherpa-food-and-bar-dev-team/",
     featured: false
   },

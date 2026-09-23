@@ -1,9 +1,3 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
-}
-
 /* Print-friendly styling for resume */
 @media print {
   /* Simplify colors and remove shadows */
