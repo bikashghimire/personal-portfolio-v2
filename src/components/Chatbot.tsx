@@ -94,7 +94,7 @@ export default function Chatbot() {
             'h-14 w-14 rounded-full p-0 shadow-lg transition-all duration-300 border border-border',
             isOpen
               ? 'bg-destructive hover:bg-destructive/90 text-destructive-foreground'
-              : 'bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-black'
+              : 'bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground'
           )}
           aria-label={isOpen ? 'Close chat' : 'Open chat'}
         >

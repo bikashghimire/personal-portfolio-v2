@@ -112,7 +112,7 @@ const Hero: React.FC = () => {
             size="lg"
             variant="outline"
             asChild
-            className="group w-full xs:w-auto px-7 py-6 text-base font-bold rounded-none border border-[#f5f1e8]/30 text-[#f5f1e8] hover:bg-[#f5f1e8] hover:text-[#14202f] transition-all duration-300"
+            className="group w-full xs:w-auto px-7 py-6 text-base font-bold rounded-none border border-[#f5f1e8]/30 bg-transparent text-[#f5f1e8] hover:bg-[#f5f1e8] hover:text-[#14202f] transition-all duration-300"
           >
             <a href={resumePdf} download="ghimire_bikash_cv.pdf">
               <Download className="h-5 w-5 mr-3" />

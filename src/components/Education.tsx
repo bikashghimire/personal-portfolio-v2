@@ -6,37 +6,37 @@ import { education } from '@/data/portfolio';
 
 const Education: React.FC = () => {
   return (
-    <section id="education" className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-black">
+    <section id="education" className="py-24 sm:py-28 lg:py-36 paper-section">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-black dark:text-white">
+            <h2 className="display-font text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 tracking-[-0.06em] text-foreground">
               Education
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
               Academic foundation and continuous learning journey
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {education.map((edu) => (
-              <Card key={edu.id} className="overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-black shadow-sm">
+              <Card key={edu.id} className="overflow-hidden border border-border bg-card shadow-none rounded-none">
                 <CardContent className="p-8">
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="flex justify-center items-center w-12 h-12 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-full">
-                      <GraduationCap className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                    <div className="flex justify-center items-center w-12 h-12 bg-secondary border border-border rounded-full">
+                      <GraduationCap className="h-6 w-6 text-muted-foreground" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-xl font-semibold text-black dark:text-white mb-2">{edu.degree}</h3>
-                      <h4 className="text-lg font-medium mb-2 text-black dark:text-white">{edu.institution}</h4>
-                      <div className="flex flex-col xs:flex-row xs:flex-wrap gap-4 text-gray-600 dark:text-gray-400 text-sm">
+                      <h3 className="display-font text-xl font-semibold text-foreground mb-2">{edu.degree}</h3>
+                      <h4 className="text-lg font-medium mb-2 text-foreground">{edu.institution}</h4>
+                      <div className="flex flex-col xs:flex-row xs:flex-wrap gap-4 text-muted-foreground text-sm">
                         <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                           <Calendar className="h-4 w-4 text-[#b4d500]" />
                           {edu.duration}
                         </div>
                         <div className="flex items-center gap-1">
-                          <MapPin className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                           <MapPin className="h-4 w-4 text-[#b4d500]" />
                           {edu.location}
                         </div>
                       </div>
@@ -44,10 +44,10 @@ const Education: React.FC = () => {
                   </div>
 
                   <div className="mb-6">
-                    <h5 className="font-semibold mb-3 text-black dark:text-white">Key Coursework</h5>
+                    <h5 className="font-semibold mb-3 text-foreground">Key Coursework</h5>
                     <div className="flex flex-wrap gap-2">
                       {edu.coursework.map((course) => (
-                        <Badge key={course} variant="outline" className="text-xs py-1 px-2 bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <Badge key={course} variant="outline" className="text-xs py-1 px-2 bg-secondary border-border text-muted-foreground rounded-none">
                           {course}
                         </Badge>
                       ))}
@@ -55,12 +55,12 @@ const Education: React.FC = () => {
                   </div>
 
                   <div>
-                    <h5 className="font-semibold mb-3 text-black dark:text-white">Achievements</h5>
+                    <h5 className="font-semibold mb-3 text-foreground">Achievements</h5>
                     <ul className="space-y-2">
                       {edu.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start gap-2 p-3 rounded-lg bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
-                          <Award className="h-4 w-4 text-gray-700 dark:text-gray-300 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-gray-700 dark:text-gray-300">{achievement}</span>
+                         <li key={i} className="flex items-start gap-2 p-3 bg-secondary border border-border">
+                           <Award className="h-4 w-4 text-[#b4d500] mt-0.5 flex-shrink-0" />
+                           <span className="text-sm text-muted-foreground">{achievement}</span>
                         </li>
                       ))}
                     </ul>

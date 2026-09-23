@@ -93,7 +93,7 @@ const Projects: React.FC = () => {
               />
             </div>
             <div className="flex items-center gap-2">
-              <label htmlFor="sortBy" className="text-sm text-gray-600 dark:text-gray-400">Sort</label>
+               <label htmlFor="sortBy" className="text-sm text-muted-foreground">Sort</label>
               <select
                 id="sortBy"
                 value={sortBy}
@@ -112,7 +112,7 @@ const Projects: React.FC = () => {
               variant={activeFilter === 'all' ? 'default' : 'outline'}
               size="sm"
               onClick={() => setActiveFilter('all')}
-              className={`flex items-center gap-2 ${activeFilter === 'all' ? 'bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black text-white dark:text-black' : 'border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100'}`}
+               className={`flex items-center gap-2 ${activeFilter === 'all' ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'border-border text-muted-foreground hover:bg-secondary hover:text-foreground'}`}
             >
               <Filter className="h-4 w-4" />
               All Projects
@@ -123,7 +123,7 @@ const Projects: React.FC = () => {
                 variant={activeFilter === tech ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setActiveFilter(tech)}
-                className={`transition-colors duration-200 ${activeFilter === tech ? 'bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black text-white dark:text-black' : 'border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100'}`}
+                 className={`transition-colors duration-200 ${activeFilter === tech ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'border-border text-muted-foreground hover:bg-secondary hover:text-foreground'}`}
               >
                 {tech}
               </Button>
@@ -174,8 +174,8 @@ const Projects: React.FC = () => {
                             {tech}
                           </Badge>
                         ))}
-                        {project.technologies.length > 4 && (
-                          <Badge variant="outline" className="text-xs py-1 px-3 bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">
+                         {project.technologies.length > 4 && (
+                           <Badge variant="outline" className="text-xs py-1 px-3 bg-secondary border-border text-muted-foreground rounded-none">
                             +{project.technologies.length - 4}
                           </Badge>
                         )}
@@ -221,8 +221,8 @@ const Projects: React.FC = () => {
           {otherProjects.length > 0 && (
             <>
               <div className="text-center mb-12">
-                <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-black dark:text-white">More Projects</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-lg">
+                <h3 className="display-font text-2xl sm:text-3xl font-bold mb-4 text-foreground">More Projects</h3>
+                <p className="text-muted-foreground text-lg">
                   Additional experiments and learning projects
                 </p>
               </div>
@@ -230,7 +230,7 @@ const Projects: React.FC = () => {
                 {otherProjects.map((project) => (
                   <Card 
                     key={project.id} 
-                    className="group overflow-hidden border border-gray-200 dark:border-gray-800 bg-white dark:bg-black shadow-none hover:shadow-sm transition-all duration-200"
+                    className="group overflow-hidden border border-border bg-card shadow-none hover:-translate-y-1 hover:border-[#b4d500] transition-all duration-300 rounded-none"
                   >
                     <div className="aspect-video overflow-hidden">
                       <img 
@@ -241,10 +241,10 @@ const Projects: React.FC = () => {
                       />
                     </div>
                     <CardContent className="p-6">
-                      <h3 className="text-lg font-bold text-black dark:text-white mb-3 transition-colors duration-300">
+                      <h3 className="display-font text-lg font-bold text-foreground mb-3 transition-colors duration-300">
                         {project.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed line-clamp-2">
+                      <p className="text-muted-foreground mb-4 text-sm leading-relaxed line-clamp-2">
                         {project.description}
                       </p>
                       <div className="flex flex-wrap gap-2 mb-4">
@@ -252,13 +252,13 @@ const Projects: React.FC = () => {
                           <Badge 
                             key={tech} 
                             variant="outline" 
-                            className="text-xs py-1 px-2 bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+                            className="text-xs py-1 px-2 bg-secondary border-border text-muted-foreground rounded-none"
                           >
                             {tech}
                           </Badge>
                         ))}
                         {project.technologies.length > 3 && (
-                          <Badge variant="outline" className="text-xs py-1 px-2 bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300">
+                          <Badge variant="outline" className="text-xs py-1 px-2 bg-secondary border-border text-muted-foreground rounded-none">
                             +{project.technologies.length - 3}
                           </Badge>
                         )}
@@ -268,7 +268,7 @@ const Projects: React.FC = () => {
                           size="sm"
                           variant="outline" 
                           asChild 
-                          className="flex-1 py-2.5 px-4 text-xs border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 group/btn"
+                          className="flex-1 py-2.5 px-4 text-xs border-border text-foreground hover:bg-secondary rounded-none group/btn"
                         >
                           <a href={project.github} target="_blank" rel="noopener noreferrer">
                             <Github className="h-3 w-3 mr-1 group-hover/btn:animate-pulse" />
@@ -278,7 +278,7 @@ const Projects: React.FC = () => {
                         {project.demo && <Button
                           size="sm"
                           asChild 
-                          className="flex-1 py-2.5 px-4 text-xs bg-black dark:bg-white hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-black text-white dark:text-black group/btn"
+                          className="flex-1 py-2.5 px-4 text-xs bg-[#14202f] dark:bg-[#f5f1e8] text-[#d8f52b] dark:text-[#14202f] hover:bg-[#d8f52b] hover:text-[#14202f] rounded-none group/btn"
                         >
                           <a href={project.demo} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} live demo`}>
                             <ExternalLink className="h-3 w-3 mr-1 group-hover/btn:rotate-12 transition-transform duration-300" />
@@ -289,7 +289,7 @@ const Projects: React.FC = () => {
                           size="sm"
                           variant="outline"
                           onClick={() => setOpenCaseStudyId(project.id as number)}
-                          className="py-2 px-3 text-xs border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                          className="py-2 px-3 text-xs border-border text-foreground hover:bg-secondary rounded-none"
                         >
                           Case Study
                         </Button>
@@ -303,10 +303,10 @@ const Projects: React.FC = () => {
           {/* No projects found message */}
           {filteredProjects.length === 0 && (
             <div className="text-center py-16">
-              <h3 className="text-2xl font-bold text-black dark:text-white mb-4">
+               <h3 className="text-2xl font-bold text-foreground mb-4">
                 No projects found for "{activeFilter}"
               </h3>
-              <Button onClick={() => setActiveFilter('all')} variant="outline" className="border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
+               <Button onClick={() => setActiveFilter('all')} variant="outline" className="border-border text-foreground hover:bg-secondary">
                 View All Projects
               </Button>
             </div>
@@ -314,15 +314,15 @@ const Projects: React.FC = () => {
           {openCaseStudyId !== null && (
              <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="case-study-title">
                <button type="button" aria-label="Close case study" className="absolute inset-0 bg-black/60 dark:bg-white/20 cursor-default" onClick={() => setOpenCaseStudyId(null)} />
-               <div className="relative z-10 max-h-[85vh] overflow-y-auto max-w-2xl w-[92%] sm:w-[85%] bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl shadow-xl p-6">
+               <div className="relative z-10 max-h-[85vh] overflow-y-auto max-w-2xl w-[92%] sm:w-[85%] bg-card text-card-foreground border border-border rounded-none shadow-xl p-6">
                 {(() => {
                   const project = projects.find(p => (p.id as number) === openCaseStudyId);
                   if (!project) return null;
                   return (
                     <div>
-                       <h3 id="case-study-title" className="text-2xl font-bold mb-2 text-black dark:text-white">{project.title}</h3>
-                      <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
-                      <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                        <h3 id="case-study-title" className="display-font text-2xl font-bold mb-2 text-card-foreground">{project.title}</h3>
+                       <p className="text-muted-foreground mb-4">{project.description}</p>
+                       <div className="text-sm text-muted-foreground mb-4">
                         <span className="font-semibold">Technologies: </span>
                         {project.technologies.join(', ')}
                       </div>
@@ -333,7 +333,7 @@ const Projects: React.FC = () => {
                         )}
                       </div>
                       <div className="mt-6 flex justify-end">
-                        <Button onClick={() => setOpenCaseStudyId(null)} className="bg-black text-white dark:bg-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200">Close</Button>
+                       <Button onClick={() => setOpenCaseStudyId(null)} className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-none">Close</Button>
                       </div>
                     </div>
                   );
